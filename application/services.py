@@ -12,12 +12,10 @@ def add_new_shelf():
     if str(shelf_number) not in directories:
         shelf_number = str(shelf_number)
         directories[shelf_number] = []
-        return (f'Полка с номером "{shelf_number}" успешно добавлена!\n'
-                f'{directories}\n')
+        return f'Полка с номером "{shelf_number}" успешно добавлена!\n{directories}\n'
 
     else:
-        return (f'Полка с номером "{shelf_number}" уже существует!\n'
-                f'{directories}\n')
+        return f'Полка с номером "{shelf_number}" уже существует!\n{directories}\n'
 
 
 def add_new_doc():
@@ -38,8 +36,8 @@ def add_new_doc():
         for key, value in directories.items():
             if str(shelf_number) in key:
                 directories[key] = value + [doc_number]
-                return (f'{type_doc} с номером "{doc_number}" успешно добавлен на полку №"{shelf_number}"\n'
-                        f'{directories}\n')
+                return f'{type_doc} с номером "{doc_number}" успешно добавлен на полку №"{shelf_number}"\n' \
+                       f'{directories}\n'
     else:
         return f'Такой полки не существует!\n{directories}\n'
 
@@ -63,8 +61,7 @@ def move_doc():
                         return (f'Документ с номером "{doc_number}" успешно перемещен!\n'
                                 f'{directories}\n')
             else:
-                return (f'Такой полки не существует!\n'
-                        f'{directories}\n')
+                return f'Такой полки не существует!\n{directories}\n'
     return f'Документа с номером "{doc_number}" в базе нет!\n'
 
 
@@ -81,8 +78,7 @@ def del_doc():
     for document in documents:
         if document.get('number') == doc_number:
             documents.remove(document)
-            return (f'Документ с номером "{doc_number}" успешно удален!\n'
-                    f'{directories}\n')
+            return f'Документ с номером "{doc_number}" успешно удален!\n{directories}\n'
     return f'Документа с номером "{doc_number}" в базе нет!\n'
 
 
